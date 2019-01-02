@@ -2,6 +2,7 @@ package com.cdp.taf;
 
 import com.cdp.taf.core.EnvProperties;
 import com.cdp.taf.core.WebDriverConfig;
+import com.cdp.taf.po.LoginPage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

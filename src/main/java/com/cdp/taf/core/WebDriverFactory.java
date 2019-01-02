@@ -23,6 +23,12 @@ public class WebDriverFactory {
         return DRIVER_POOL.get();
     }
 
+    public static void setDriver(WebDriver driver){
+        if(DRIVER_POOL.get() != null){
+            DRIVER_POOL.set(driver);
+        }
+    }
+
     private static WebDriver getLocalDriverInstance() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");

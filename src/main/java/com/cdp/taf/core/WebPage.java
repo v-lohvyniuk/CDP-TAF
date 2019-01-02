@@ -16,7 +16,7 @@ public abstract class WebPage {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public void navigate(){
+    public WebPage navigate(){
         throw new NotImplementedException();
     }
 }

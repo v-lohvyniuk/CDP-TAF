@@ -9,6 +9,7 @@ public abstract class UiTestBase {
     public void tearDown(){
         WebDriverFactory.getDriver().close();
         WebDriverFactory.getDriver().quit();
+        WebDriverFactory.setDriver(null);
     }
 
 }

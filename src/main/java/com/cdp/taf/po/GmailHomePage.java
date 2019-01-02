@@ -17,12 +17,14 @@ public class GmailHomePage extends WebPage {
         return homeInput;
     }
 
+    
     public WebElement getSubmitButton() {
         return submitButton;
     }
 
     @Override
-    public void navigate(){
+    public GmailHomePage navigate(){
         driver.navigate().to("https://www.google.com/");
+        return this;
     }
 }

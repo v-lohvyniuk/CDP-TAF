@@ -13,7 +13,7 @@ public class LoginTest extends UiTestBase {
         LoginPage loginPage = new LoginPage();
         loginPage.navigate();
         loginPage.getEmailInput().sendKeys("volodymyr.lohvyniuk@gmail.com");
-        loginPage.getPasswordInput().sendKeys("solliwarqwertyua");
+        loginPage.getPasswordInput().sendKeys("");
         loginPage.getLoginButton().click();
 
         assertTrue(new HomePage().getProfilePicLabel().isDisplayed());

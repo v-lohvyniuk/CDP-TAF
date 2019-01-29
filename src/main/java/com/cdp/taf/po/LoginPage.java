@@ -117,7 +117,7 @@ public class LoginPage extends WebPage {
 
     @Override
     public LoginPage navigate() {
-        WebDriverFactory.getDriver().navigate().to("https://www.facebook.com/");
+        this.driver.navigate().to("https://www.facebook.com/");
         return this;
     }
 }

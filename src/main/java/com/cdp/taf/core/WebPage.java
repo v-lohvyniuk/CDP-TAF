@@ -13,7 +13,7 @@ public abstract class WebPage {
 
     public WebPage() {
         this.driver = getDriver();
-        PageFactory.initElements(getDriver(), this);
+        PageFactory.initElements(this.driver, this);
     }
 
     public WebPage navigate(){

@@ -11,16 +11,11 @@ public class WebDriverFactory {
 
     static {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
-//        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
     }
 
     private static final ThreadLocal<WebDriver> DRIVER_POOL = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
-//        if (DRIVER_POOL.get() == null) {
-//            DRIVER_POOL.set(getLocalDriverInstance());
-//        }
-//        return DRIVER_POOL.get();
         return getLocalDriverInstance();
     }
 

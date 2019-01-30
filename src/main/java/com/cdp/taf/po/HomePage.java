@@ -2,6 +2,7 @@ package com.cdp.taf.po;
 
 import com.cdp.taf.core.WebDriverFactory;
 import com.cdp.taf.core.WebPage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,4 +14,5 @@ public class HomePage extends WebPage {
     public WebElement getProfilePicLabel() {
         return profilePicLabel;
     }
+
 }

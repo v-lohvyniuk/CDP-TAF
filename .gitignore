@@ -1,0 +1,8 @@
+.gradle/
+**/.gradle/
+.*
+!/.gitignore
+**/build
+**/out
+**/*.class
+**/workspace.xml

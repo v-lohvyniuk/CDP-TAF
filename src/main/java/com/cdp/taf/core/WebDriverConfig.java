@@ -1,5 +1,6 @@
 package com.cdp.taf.core;
 
+import com.cdp.taf.po.HomePage;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;

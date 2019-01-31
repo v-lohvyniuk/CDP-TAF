@@ -1,10 +1,12 @@
 package com.cdp.taf.core;
 
+import com.cdp.taf.PropertiesResolver;
 import com.cdp.taf.bo.LoginRegisterBO;
 import com.cdp.taf.po.HomePage;
 import com.cdp.taf.po.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
@@ -15,6 +17,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class SpringConfig {
@@ -37,10 +40,10 @@ public class SpringConfig {
         return new LoginRegisterBO();
     }
 
-    @Bean
+    @Bean(destroyMethod = "quit")
     @Scope("thread")
     public WebDriver webDriver(){
-        return new ChromeDriver();
+        return getLocalDriverInstance();
     }
 
     @Bean
@@ -56,5 +59,13 @@ public class SpringConfig {
     }
 
 
+    private static WebDriver getLocalDriverInstance() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        options.addArguments("--disable-notifications");
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(PropertiesResolver.webDriverConfig.webdriverWait(), TimeUnit.SECONDS);
+        return driver;
+    }
 
 }

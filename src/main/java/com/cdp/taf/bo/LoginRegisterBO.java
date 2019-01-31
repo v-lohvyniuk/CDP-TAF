@@ -34,6 +34,7 @@ public class LoginRegisterBO {
     }
 
     public void register(User user) {
+        getLoginPage().navigate();
         getLoginPage().getFirstNameInput().sendKeys(user.getfName());
         getLoginPage().getLastNameInput().sendKeys(user.getlName());
         getLoginPage().getEmailOfPhoneInput().sendKeys(user.getEmail());
@@ -52,13 +53,13 @@ public class LoginRegisterBO {
 
     public static User getSampleUser() {
         return new User.Builder()
-                .setfName("Volodymyr")
-                .setlName("Kotlinskyy")
-                .setEmail("emailt783+" + System.currentTimeMillis() + "@gmail.com")
-                .setPassword("Facebook123QweRtx")
+                .setfName("Volodymyddffdfr")
+                .setlName("Kotlinskdfdfyy")
+                .setEmail("emailt78sddsd3+" + System.currentTimeMillis() + "@gmail.com")
+                .setPassword("Facebook123QweRtxsdsd")
                 .setDOBday(7)
                 .setDOBmonth(7)
-                .setDOByear(1997)
+                .setDOByear(1996)
                 .setGender(1)
                 .build();
     }

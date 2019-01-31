@@ -25,6 +25,7 @@ public class LoginTest extends UiTestBase {
         // WHEN
         loginRegisterBO.register(getSampleUser());
         // THEN
+        //TODO: Add model generation to avoid security check
 //        assertTrue(loginRegisterBO.isEmailConfirmationMessageDisplayed());
     }
 }

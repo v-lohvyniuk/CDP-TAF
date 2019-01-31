@@ -1,4 +1,7 @@
-**/.gradle
+.gradle/
+**/.gradle/
+.*
+!/.gitignore
 **/build
 **/out
 **/*.class

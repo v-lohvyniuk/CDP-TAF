@@ -144,4 +144,18 @@ public class User {
             return new User(fName, lName, email, password, doBday, doBmonth, doByear, gender);
         }
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", DOBday=" + DOBday +
+                ", DOBmonth=" + DOBmonth +
+                ", DOByear=" + DOByear +
+                ", gender=" + gender +
+                '}';
+    }
 }

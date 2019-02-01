@@ -1,6 +1,7 @@
 package com.cdp.taf;
 
 import com.cdp.taf.bo.LoginRegisterBO;
+import com.cdp.taf.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 
@@ -22,8 +23,11 @@ public class LoginTest extends UiTestBase {
 
     @Test(description = "User is able to see registration email confirmation message")
     public void registration_Confirmation_Positive_TestCase() {
+        // Given
+        User user = getSampleUser();
+        System.out.println(user);
         // WHEN
-        loginRegisterBO.register(getSampleUser());
+        loginRegisterBO.register(user);
         // THEN
         //TODO: Add model generation to avoid security check
         assertTrue(loginRegisterBO.isEmailConfirmationMessageDisplayed());

@@ -4,15 +4,11 @@ import com.cdp.taf.models.User;
 import com.cdp.taf.po.HomePage;
 import com.cdp.taf.po.LoginPage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 @Component
 public class LoginRegisterBO {
-
-    @Autowired
-    private ApplicationContext applicationContext;
 
     @Lazy
     @Autowired
@@ -53,9 +49,9 @@ public class LoginRegisterBO {
 
     public static User getSampleUser() {
         return new User.Builder()
-                .setfName("Volodymyr" + System.currentTimeMillis())
-                .setlName("Kotlinsky" + System.currentTimeMillis())
-                .setEmail("emailt78sddsd3+" + System.currentTimeMillis() + "@gmail.com")
+                .setfName("Volodymyr")
+                .setlName("Kotlinsky")
+                .setEmail("ema+" + System.currentTimeMillis() + "@gmail.com")
                 .setPassword("Facebook123Qwe" +System.currentTimeMillis())
                 .setDOBday(7)
                 .setDOBmonth(7)

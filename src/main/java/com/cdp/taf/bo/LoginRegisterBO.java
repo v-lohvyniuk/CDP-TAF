@@ -5,6 +5,7 @@ import com.cdp.taf.po.HomePage;
 import com.cdp.taf.po.LoginPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,50 +14,49 @@ public class LoginRegisterBO {
     @Autowired
     private ApplicationContext applicationContext;
 
-    private LoginPage getLoginPage() {
-        return applicationContext.getBean(LoginPage.class);
-    }
+    @Lazy
+    @Autowired
+    private LoginPage loginPage;
 
-    private HomePage getHomePage() {
-        return applicationContext.getBean(HomePage.class);
-    }
-
+    @Lazy
+    @Autowired
+    private HomePage homePage;
 
     public void login(String email, String password) {
-        getLoginPage().navigate();
-        getLoginPage().getEmailInput().sendKeys(email);
-        getLoginPage().getPasswordInput().sendKeys(password);
-        getLoginPage().getLoginButton().click();
+        loginPage.navigate();
+        loginPage.getEmailInput().sendKeys(email);
+        loginPage.getPasswordInput().sendKeys(password);
+        loginPage.getLoginButton().click();
     }
 
     public boolean isUserLoggedIn(){
-        return getHomePage().getProfilePicLabel().isDisplayed();
+        return homePage.getProfilePicLabel().isDisplayed();
     }
 
     public void register(User user) {
-        getLoginPage().navigate();
-        getLoginPage().getFirstNameInput().sendKeys(user.getfName());
-        getLoginPage().getLastNameInput().sendKeys(user.getlName());
-        getLoginPage().getEmailOfPhoneInput().sendKeys(user.getEmail());
-        getLoginPage().getEmailOfPhoneConfirmInput().sendKeys(user.getEmail());
-        getLoginPage().getNewPasswordInput().sendKeys(user.getPassword());
-        getLoginPage().getBirthdayDaySelect().selectByValue("" + user.getDOBday());
-        getLoginPage().getBirthdayMonthSelect().selectByValue("" + user.getDOBmonth());
-        getLoginPage().getBirthdayYearSelect().selectByValue("" + user.getDOByear());
-        getLoginPage().getGenderRadioButtonByValue("" + user.getGender()).click();
-        getLoginPage().getRegistrationButton().click();
+        loginPage.navigate();
+        loginPage.getFirstNameInput().sendKeys(user.getfName());
+        loginPage.getLastNameInput().sendKeys(user.getlName());
+        loginPage.getEmailOfPhoneInput().sendKeys(user.getEmail());
+        loginPage.getEmailOfPhoneConfirmInput().sendKeys(user.getEmail());
+        loginPage.getNewPasswordInput().sendKeys(user.getPassword());
+        loginPage.getBirthdayDaySelect().selectByValue("" + user.getDOBday());
+        loginPage.getBirthdayMonthSelect().selectByValue("" + user.getDOBmonth());
+        loginPage.getBirthdayYearSelect().selectByValue("" + user.getDOByear());
+        loginPage.getGenderRadioButtonByValue("" + user.getGender()).click();
+        loginPage.getRegistrationButton().click();
     }
 
     public boolean isEmailConfirmationMessageDisplayed(){
-        return getLoginPage().getEmailConfirmationWidget().isDisplayed();
+        return loginPage.getEmailConfirmationWidget().isDisplayed();
     }
 
     public static User getSampleUser() {
         return new User.Builder()
-                .setfName("Volodymyddffdfr")
-                .setlName("Kotlinskdfdfyy")
+                .setfName("Volodymyr" + System.currentTimeMillis())
+                .setlName("Kotlinsky" + System.currentTimeMillis())
                 .setEmail("emailt78sddsd3+" + System.currentTimeMillis() + "@gmail.com")
-                .setPassword("Facebook123QweRtxsdsd")
+                .setPassword("Facebook123Qwe" +System.currentTimeMillis())
                 .setDOBday(7)
                 .setDOBmonth(7)
                 .setDOByear(1996)

@@ -15,7 +15,7 @@ public class LoginTest extends UiTestBase {
     @Test(description = "User can log in to application")
     public void login_Positive_TestCase() {
         // WHEN
-        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "");
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Solliwarqwertyua");
         // THEN
         assertTrue(loginRegisterBO.isUserLoggedIn());
     }
@@ -26,6 +26,6 @@ public class LoginTest extends UiTestBase {
         loginRegisterBO.register(getSampleUser());
         // THEN
         //TODO: Add model generation to avoid security check
-//        assertTrue(loginRegisterBO.isEmailConfirmationMessageDisplayed());
+        assertTrue(loginRegisterBO.isEmailConfirmationMessageDisplayed());
     }
 }

@@ -7,14 +7,9 @@ import com.cdp.taf.po.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.*;
 
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +20,6 @@ public class SpringConfig {
     static {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
     }
-
 
     @Bean
     public CustomScopeConfigurer customScopeConfigurer(){
@@ -40,7 +34,7 @@ public class SpringConfig {
         return new LoginRegisterBO();
     }
 
-    @Bean(destroyMethod = "quit")
+    @Bean
     @Scope("thread")
     public WebDriver webDriver(){
         return getLocalDriverInstance();

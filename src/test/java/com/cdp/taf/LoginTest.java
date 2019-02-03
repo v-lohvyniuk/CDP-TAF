@@ -1,7 +1,10 @@
 package com.cdp.taf;
 
 import com.cdp.taf.bo.LoginRegisterBO;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.testng.annotations.Test;
 
 import static com.cdp.taf.bo.LoginRegisterBO.getSampleUser;
@@ -28,4 +31,17 @@ public class LoginTest extends UiTestBase {
         //TODO: Add model generation to avoid security check
 //        assertTrue(loginRegisterBO.isEmailConfirmationMessageDisplayed());
     }
+
+    @Test
+    public void navigateToGoogleHomePage(){
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.get("https://translate.google.com/");
+        WebElement element = webDriver.findElement(By.xpath("//a[contains(@href, 'ServiceLogin')]"));
+        System.out.println(element.getText());
+        webDriver.navigate().to("https://www.ukr.net/");
+        WebElement videoElement = webDriver.findElement(By.xpath("(//a[contains(@href, 'news/video')])[1]"));
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].scrollIntoView(true);", videoElement);
+//        videoElement.click();
+    }
+
 }

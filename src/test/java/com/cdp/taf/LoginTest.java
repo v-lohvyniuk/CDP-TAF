@@ -16,7 +16,7 @@ public class LoginTest extends UiTestBase {
     @Test(description = "User can log in to application")
     public void login_Positive_TestCase() {
         // WHEN
-        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Solliwarqwertyua");
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "");
         // THEN
         assertTrue(loginRegisterBO.isUserLoggedIn());
     }

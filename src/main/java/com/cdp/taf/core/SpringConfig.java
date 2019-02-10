@@ -18,7 +18,19 @@ import java.util.concurrent.TimeUnit;
 public class SpringConfig {
 
     static {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", resolveDriverExecutable());
+    }
+
+    private static String resolveDriverExecutable(){
+        if(System.getProperty("os.name").toLowerCase().contains("linux")){
+            return "src/main/resources/drivers/linux/chromedriver";
+        }else {
+            return "src/main/resources/drivers/chromedriver.exe";
+        }
+    }
+
+    public static void main(String[] args) {
+        resolveDriverExecutable();
     }
 
     @Bean

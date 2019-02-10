@@ -1,5 +1,6 @@
 package com.cdp.taf.po;
 
+import com.cdp.taf.core.DecoratedElement;
 import com.cdp.taf.core.WebPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -51,7 +52,7 @@ public class LoginPage extends WebPage {
     private WebElement registrationButton;
 
     @FindBy(xpath = "//div[contains(@class, 'contact_importer_widget')]")
-    private WebElement emailConfirmationWidget;
+    private DecoratedElement emailConfirmationWidget;
 
     public WebElement getEmailInput() {
         return emailInput;
@@ -110,7 +111,7 @@ public class LoginPage extends WebPage {
         return emailOfPhoneConfirmInput;
     }
 
-    public WebElement getEmailConfirmationWidget() {
+    public DecoratedElement getEmailConfirmationWidget() {
         return emailConfirmationWidget;
     }
 

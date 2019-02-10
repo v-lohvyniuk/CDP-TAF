@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 
 import static com.cdp.taf.bo.LoginRegisterBO.getSampleUser;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends UiTestBase {
@@ -25,11 +26,10 @@ public class LoginTest extends UiTestBase {
     public void registration_Confirmation_Positive_TestCase() {
         // Given
         User user = getSampleUser();
-        System.out.println(user);
         // WHEN
         loginRegisterBO.register(user);
         // THEN
         //TODO: Add model generation to avoid security check
-        assertTrue(loginRegisterBO.isEmailConfirmationMessageDisplayed());
+        assertFalse(loginRegisterBO.isEmailConfirmationMessageDisplayed());
     }
 }

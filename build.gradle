@@ -44,12 +44,21 @@ dependencies {
 apply plugin: 'java'
 
 test {
+    include '**/*LoginTest.class'
+    systemProperties System.getProperties()
+    useTestNG() {
+        parallel 'methods'
+        threadCount 2
+    }
+}
+
+task apiTest(type: Test) {
     include '**/*ApiTest.class'
     systemProperties System.getProperties()
-        useTestNG() {
-            parallel 'methods'
-            threadCount 6
-        }
+    useTestNG() {
+        parallel 'methods'
+        threadCount 6
+    }
 }
 
 allure {

@@ -16,7 +16,6 @@ public class AllureLogListener implements ITestListener, IInvokedMethodListener 
 
     public void onStart(ITestContext iTestContext) {
         RestAssured.filters(new ApiLogFilter());
-//        RestAssured.filters(new AllureRestAssured());
     }
 
     @Step("FULL TEST LOG")

@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 public interface DataSource <T> {
 
-    List<T> getAll();
+    List<T> getAll(DataPath src, Class clazz);
 
     List<T> getAllWith(Predicate<T> predicate);
 

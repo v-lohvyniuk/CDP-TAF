@@ -1,5 +1,7 @@
-package com.cdp.taf.core.datasource;
+package com.cdp.taf.core.datasource.impl;
 
+import com.cdp.taf.core.datasource.DataPath;
+import com.cdp.taf.core.datasource.DataSource;
 import com.opencsv.CSVReader;
 import com.opencsv.bean.*;
 
@@ -9,17 +11,16 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.function.Predicate;
 
 @SuppressWarnings("all")
-public abstract class CsvDataSource {
+public class  CsvDataSource  implements DataSource {
 
-    public abstract String getPath();
-
-    protected <T> List<T> readForClass(Class<T> clazz){
+    protected <T> List<T> readForClass(Class<T> clazz, String pathToFile){
         CsvToBean csvToBean = null;
         MappingStrategy<T> strategy = new HeaderColumnNameMappingStrategy<>();
         strategy.setType(clazz);
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(getPath()), StandardCharsets.UTF_8)) {
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(pathToFile), StandardCharsets.UTF_8)) {
 
             csvToBean = new CsvToBeanBuilder(br) //
                     .withType(clazz) //
@@ -33,4 +34,18 @@ public abstract class CsvDataSource {
         return null;
     }
 
+    @Override
+    public List getAll(DataPath source, Class clazz) {
+        return readForClass(clazz, source.getPath());
+    }
+
+    @Override
+    public List getAllWith(Predicate predicate) {
+        return null;
+    }
+
+    @Override
+    public Object getOne(Predicate predicate) {
+        return null;
+    }
 }

@@ -1,14 +1,10 @@
 package com.cdp.taf.api.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import java.util.Objects;
 
-import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
-
 public class UserDTO {
-    @JsonInclude(NON_NULL)
+
     private String website;
 
     private Address address;
@@ -24,6 +20,15 @@ public class UserDTO {
     private String email;
 
     private String username;
+
+    public static UserDTO getDefaultUserDTO(int id) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setEmail("newemail.@gmail.com");
+        userDTO.setName("newName");
+        userDTO.setUsername("newUsername");
+        userDTO.setId(String.valueOf(id));
+        return userDTO;
+    }
 
     public String getWebsite() {
         return website;
@@ -112,14 +117,5 @@ public class UserDTO {
     @Override
     public int hashCode() {
         return Objects.hash(website, address, phone, name, company, id, email, username);
-    }
-
-    public static UserDTO getDefaultUserDTO(int id) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setEmail("newemail.@gmail.com");
-        userDTO.setName("newName");
-        userDTO.setUsername("newUsername");
-        userDTO.setId(String.valueOf(id));
-        return userDTO;
     }
 }

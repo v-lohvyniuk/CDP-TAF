@@ -8,28 +8,30 @@ import io.restassured.filter.FilterContext;
 import io.restassured.response.Response;
 import io.restassured.specification.FilterableRequestSpecification;
 import io.restassured.specification.FilterableResponseSpecification;
+import org.springframework.stereotype.Component;
 import org.testng.Reporter;
 
-public class ApiLogFilter implements Filter {
+import java.util.Objects;
 
-    public ThreadLocal<Integer> counter = new ThreadLocal<>();
+@Component
+public class ApiLogFilter implements Filter {
 
     public Response filter(FilterableRequestSpecification requestSpec, FilterableResponseSpecification responseSpec, FilterContext filterContext) {
         Response response = filterContext.next(requestSpec, responseSpec);
         Reporter.log("================================================================================================");
         Reporter.log("=========================================REQUEST================================================");
-        Reporter.log(String.format("WITH METHOD %-10s URI: %-50s", requestSpec.getMethod(), requestSpec.getURI()));
-        if (null != requestSpec.getBody()) {
-            Reporter.log(String.format("WITH BODY %s", requestSpec.getBody().toString()));
+        Reporter.log(String.format("METHOD %-10s URI: %-50s", requestSpec.getMethod(), requestSpec.getURI()));
+        if (Objects.nonNull(requestSpec.getBody())) {
+            Reporter.log(String.format("BODY %s", requestSpec.getBody().toString()));
         }
         Reporter.log("=========================================RESPONSE ==============================================");
-        Reporter.log(String.format("WITH STATUS CODE %d", response.getStatusCode()));
-        Reporter.log("WITH BODY");
+        Reporter.log(String.format("STATUS CODE %d", response.getStatusCode()));
+        Reporter.log("BODY");
         Reporter.log(response.getBody().prettyPrint());
         Reporter.log("================================================================================================");
 
-        updateCounter();
-        logAPICall(requestSpec, response, counter.get());
+        Counter.updateCounter();
+        logAPICall(requestSpec, response, Counter.getCounter());
         return response;
     }
 
@@ -49,11 +51,4 @@ public class ApiLogFilter implements Filter {
         return String.format("RESPONSE STATUS: %d \nBODY: %s", response.getStatusCode(), response.getBody().prettyPrint());
     }
 
-    private void updateCounter() {
-        if (counter.get() == null) {
-            counter.set(1);
-        } else {
-            counter.set(counter.get() + 1);
-        }
-    }
 }

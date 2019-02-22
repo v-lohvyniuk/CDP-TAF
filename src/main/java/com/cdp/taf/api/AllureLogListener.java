@@ -18,7 +18,7 @@ public class AllureLogListener implements ITestListener, IInvokedMethodListener 
         RestAssured.filters(new ApiLogFilter());
     }
 
-    @Step("FULL TEST LOG")
+    @Step("Full log")
     public String getFullTestLog(ITestResult iTestResult) {
         List<String> out = Reporter.getOutput(iTestResult);
         StringBuilder sb = new StringBuilder("Reporter Output: \n");
@@ -38,5 +38,9 @@ public class AllureLogListener implements ITestListener, IInvokedMethodListener 
         if (iInvokedMethod.isTestMethod()) {
             getFullTestLog(iTestResult);
         }
+    }
+
+    public void onTestStart(ITestResult result) {
+        Counter.resetCounter();
     }
 }

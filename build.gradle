@@ -53,11 +53,12 @@ test {
 }
 
 task apiTest(type: Test) {
+    def count  = System.getProperty('threadCount', '6').toInteger()
     include '**/*ApiTest.class'
-    systemProperties System.getProperties()
+    systemProperties = System.getProperties()
     useTestNG() {
-        parallel 'methods'
-        threadCount 6
+        parallel = 'methods'
+        threadCount = count
     }
 }
 

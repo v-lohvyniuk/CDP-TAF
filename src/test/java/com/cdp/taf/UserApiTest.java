@@ -6,7 +6,6 @@ import com.cdp.taf.api.services.UserServiceProxy;
 import io.restassured.mapper.TypeRef;
 import io.restassured.response.ValidatableResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -20,7 +19,6 @@ import static org.testng.Assert.assertEquals;
 public class UserApiTest extends APITestBase {
 
     @Autowired
-    @Lazy
     private UserServiceProxy userService;
 
     @Test(description = "Get all users and verify list size")

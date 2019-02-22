@@ -1,12 +1,9 @@
 package com.cdp.taf.api.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class TokenDTO {
 
     @XmlAttribute(name = "access_token")

@@ -1,14 +1,24 @@
 package com.cdp.taf.models;
 
+import com.opencsv.bean.CsvBindByName;
+
 public class User {
 
+    @CsvBindByName
     private String fName;
+    @CsvBindByName
     private String lName;
+    @CsvBindByName
     private String email;
+    @CsvBindByName
     private String password;
+    @CsvBindByName
     private int DOBday;
+    @CsvBindByName
     private int DOBmonth;
+    @CsvBindByName
     private int DOByear;
+    @CsvBindByName
     private int gender;
 
     public String getfName() {

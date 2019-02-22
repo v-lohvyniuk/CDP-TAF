@@ -1,6 +1,6 @@
 package com.cdp.taf.core;
 
-import com.cdp.taf.PropertiesResolver;
+import com.cdp.taf.Properties;
 import com.cdp.taf.bo.LoginRegisterBO;
 import com.cdp.taf.po.HomePage;
 import com.cdp.taf.po.LoginPage;
@@ -9,13 +9,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class SpringConfig {
+
 
     static {
         System.setProperty("webdriver.chrome.driver", resolveDriverExecutable());
@@ -34,7 +37,7 @@ public class SpringConfig {
     }
 
     @Bean
-    public CustomScopeConfigurer customScopeConfigurer(){
+    public CustomScopeConfigurer customScopeConfigurer() {
         final CustomScopeConfigurer configurer = new CustomScopeConfigurer();
         configurer.setScopes(Collections.singletonMap("thread", new SimpleThreadScope()));
         return configurer;
@@ -42,25 +45,25 @@ public class SpringConfig {
 
     @Bean
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
-    public LoginRegisterBO loginRegisterBO(){
+    public LoginRegisterBO loginRegisterBO() {
         return new LoginRegisterBO();
     }
 
     @Bean
     @Scope("thread")
-    public WebDriver webDriver(){
+    public WebDriver webDriver() {
         return getLocalDriverInstance();
     }
 
     @Bean
     @Scope("thread")
-    public LoginPage loginPage(){
+    public LoginPage loginPage() {
         return new LoginPage();
     }
 
     @Bean
     @Scope("thread")
-    public HomePage homePage(){
+    public HomePage homePage() {
         return new HomePage();
     }
 
@@ -70,7 +73,7 @@ public class SpringConfig {
         options.addArguments("start-maximized");
         options.addArguments("--disable-notifications");
         WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(PropertiesResolver.webDriverConfig.webdriverWait(), TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Properties.forDriver.webdriverWait(), TimeUnit.SECONDS);
         return driver;
     }
 

@@ -30,6 +30,7 @@ public abstract class WebPage {
 
     public boolean isVisible(DecoratedElement element){
         return isVisible(element, CONTITION_WAIT);
+
     }
 
     public boolean isVisibleCurrently(DecoratedElement element){

@@ -1,15 +1,18 @@
 package com.cdp.taf.po;
 
+import com.cdp.taf.Properties;
 import com.cdp.taf.core.DecoratedElement;
 import com.cdp.taf.core.WebPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@Scope("thread")
 public class LoginPage extends WebPage {
 
     @FindBy(id = "email")
@@ -117,7 +120,7 @@ public class LoginPage extends WebPage {
 
     @Override
     public LoginPage navigate() {
-        driver.navigate().to("https://www.facebook.com/");
+        driver.navigate().to(Properties.forEnv.getBaseUrl());
         return this;
     }
 }

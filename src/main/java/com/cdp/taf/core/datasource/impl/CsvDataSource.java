@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Predicate;
@@ -20,7 +21,7 @@ public class  CsvDataSource  implements DataSource {
         CsvToBean csvToBean = null;
         MappingStrategy<T> strategy = new HeaderColumnNameMappingStrategy<>();
         strategy.setType(clazz);
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(pathToFile), StandardCharsets.UTF_8)) {
+        try (BufferedReader br = Files.newBufferedReader(getLocalPathToFile(pathToFile), StandardCharsets.UTF_8)) {
 
             csvToBean = new CsvToBeanBuilder(br) //
                     .withType(clazz) //
@@ -47,5 +48,9 @@ public class  CsvDataSource  implements DataSource {
     @Override
     public Object getOne(Predicate predicate) {
         return null;
+    }
+
+    private static Path getLocalPathToFile(String pathFromRoot){
+        return Paths.get(".", pathFromRoot);
     }
 }

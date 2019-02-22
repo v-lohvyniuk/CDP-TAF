@@ -11,7 +11,14 @@ public class EnvProperties {
     @Value("${locale}")
     private String locale;
 
+    @Value("${baseUrl}")
+    private String baseUrl;
+
     public String getLocale() {
         return locale;
+    }
+
+    public String getBaseUrl() {
+        return baseUrl;
     }
 }

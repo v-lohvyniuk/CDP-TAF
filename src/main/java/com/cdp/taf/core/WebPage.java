@@ -14,12 +14,13 @@ public abstract class WebPage {
     @Autowired
     public WebDriver driver;
 
+    public WebPage navigate(){
+        throw new NotImplementedException();
+    }
+
     @PostConstruct
     public void initPage(){
         PageFactory.initElements(driver, this);
     }
 
-    public WebPage navigate(){
-        throw new NotImplementedException();
-    }
 }

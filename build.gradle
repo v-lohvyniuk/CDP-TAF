@@ -21,6 +21,7 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-test', version: '5.1.4.RELEASE'
     testCompile group: 'org.springframework', name: 'spring-test', version: '5.1.4.RELEASE'
     testCompile group: 'org.testng', name: 'testng', version: '7.0.0-beta1'
+    compile group: 'com.opencsv', name: 'opencsv', version: '4.1'
 
 }
 

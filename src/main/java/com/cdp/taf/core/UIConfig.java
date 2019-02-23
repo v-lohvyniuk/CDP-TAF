@@ -44,16 +44,4 @@ public class UIConfig extends BaseConfig {
         return getLocalDriverInstance();
     }
 
-    @Bean
-    @Scope("thread")
-    public LoginPage loginPage() {
-        return new LoginPage();
-    }
-
-    @Bean
-    @Scope("thread")
-    public HomePage homePage() {
-        return new HomePage();
-    }
-
 }

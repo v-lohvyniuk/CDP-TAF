@@ -1,17 +1,11 @@
 package com.cdp.taf.api;
 
-import java.util.Objects;
-
 public class Counter {
 
-    static ThreadLocal<Integer> counter = new ThreadLocal<>();
+    static ThreadLocal<Integer> counter = ThreadLocal.withInitial(() -> 0);
 
     public static void updateCounter() {
-        if (Objects.isNull(counter.get())) {
-            counter.set(1);
-        } else {
-            counter.set(counter.get() + 1);
-        }
+        counter.set(counter.get() + 1);
     }
 
     public static void resetCounter() {

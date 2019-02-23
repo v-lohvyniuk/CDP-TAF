@@ -4,11 +4,13 @@ import com.cdp.taf.core.WebPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@Scope("thread")
 public class LoginPage extends WebPage {
 
     @FindBy(id = "email")

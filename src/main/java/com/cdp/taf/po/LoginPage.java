@@ -1,5 +1,6 @@
 package com.cdp.taf.po;
 
+import com.cdp.taf.Properties;
 import com.cdp.taf.core.WebPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -118,7 +119,8 @@ public class LoginPage extends WebPage {
 
     @Override
     public LoginPage navigate() {
-        driver.navigate().to("https://www.facebook.com/");
+        driver.navigate().to(Properties.forEnv.getBaseUrl());
         return this;
     }
+
 }

@@ -1,9 +1,6 @@
 package com.cdp.taf.core;
 
-import com.cdp.taf.PropertiesResolver;
 import com.cdp.taf.bo.LoginRegisterBO;
-import com.cdp.taf.po.HomePage;
-import com.cdp.taf.po.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,7 +17,11 @@ import java.util.concurrent.TimeUnit;
 public class UIConfig extends BaseConfig {
 
     static {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
+        if (System.getProperty("os.name").toLowerCase().contains("linux")) {
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/linux/chromedriver");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
+        }
     }
 
     private static WebDriver getLocalDriverInstance() {

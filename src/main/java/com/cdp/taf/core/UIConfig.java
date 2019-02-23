@@ -1,5 +1,6 @@
 package com.cdp.taf.core;
 
+import com.cdp.taf.Properties;
 import com.cdp.taf.bo.LoginRegisterBO;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,7 +30,7 @@ public class UIConfig extends BaseConfig {
         options.addArguments("start-maximized");
         options.addArguments("--disable-notifications");
         WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(PropertiesResolver.webDriverConfig.webdriverWait(), TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Properties.forDriver.webdriverWait(), TimeUnit.SECONDS);
         return driver;
     }
 

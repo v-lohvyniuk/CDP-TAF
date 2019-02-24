@@ -1,7 +1,5 @@
 package com.cdp.taf.core;
 
-import com.cdp.taf.api.services.ClientService;
-import com.cdp.taf.api.services.UserService;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -17,8 +15,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import static io.restassured.RestAssured.given;
-
 @Configuration
 @ComponentScan(basePackages = "com.cdp.taf.api")
 public class ApiConfig extends BaseConfig {
@@ -30,7 +26,7 @@ public class ApiConfig extends BaseConfig {
                 ObjectMapperConfig.objectMapperConfig().jackson2ObjectMapperFactory((cls, charset) -> objectMapper()));
         RequestSpecification spec = new RequestSpecBuilder().setContentType(ContentType.JSON).setAccept(ContentType.JSON)
                 .setConfig(config).build();
-        return given().spec(spec);
+        return spec;
     }
 
     @Bean
@@ -42,15 +38,4 @@ public class ApiConfig extends BaseConfig {
         return objectMapper;
     }
 
-    @Bean
-    @Scope("thread")
-    public UserService userService() {
-        return new UserService(requestSpecification().baseUri("https://jsonplaceholder.typicode.com/users"));
-    }
-
-    @Bean
-    @Scope("thread")
-    public ClientService clientService() {
-        return new ClientService(requestSpecification().baseUri("https://gigabyte.eu.auth0.com/api/v2/clients"));
-    }
 }

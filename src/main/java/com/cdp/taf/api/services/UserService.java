@@ -2,17 +2,14 @@ package com.cdp.taf.api.services;
 
 import com.cdp.taf.api.dto.UserDTO;
 import io.restassured.response.ValidatableResponse;
-import io.restassured.specification.RequestSpecification;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import static io.restassured.RestAssured.given;
 
 @Component
+@Scope("thread")
 public class UserService extends ApiServiceBase {
-
-    public UserService(RequestSpecification request) {
-        super(request);
-    }
 
     public ValidatableResponse getUsers() {
         return given().spec(request).when().get().then();

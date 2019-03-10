@@ -29,6 +29,10 @@ public class LoginRegisterBO {
         return homePage.getProfilePicLabel().isDisplayed();
     }
 
+    public boolean errorMessageDisplayed(){
+        return loginPage.getInvalidLoginErrorMessage().isDisplayed();
+    }
+
     public void register(User user) {
         loginPage.navigate();
         loginPage.getFirstNameInput().sendKeys(user.getfName());

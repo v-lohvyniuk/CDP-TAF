@@ -56,6 +56,13 @@ public class LoginPage extends WebPage {
     @FindBy(xpath = "//div[contains(@class, 'contact_importer_widget')]")
     private WebElement emailConfirmationWidget;
 
+    @FindBy(xpath = "//div[contains(@class,'uiContextualLayerPositioner')]//div[@role='alert']")
+    private WebElement invalidLoginErrorMessage;
+
+    public WebElement getInvalidLoginErrorMessage() {
+        return invalidLoginErrorMessage;
+    }
+
     public WebElement getEmailInput() {
         return emailInput;
     }
@@ -122,5 +129,4 @@ public class LoginPage extends WebPage {
         driver.navigate().to(Properties.forEnv.getBaseUrl());
         return this;
     }
-
 }

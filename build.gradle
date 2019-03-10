@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+project.ext {
+    cucumberVersion = '4.2.5'
+}
+
 dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     compile group: 'org.springframework', name: 'spring-context', version: '5.1.3.RELEASE'
@@ -22,7 +26,27 @@ dependencies {
     testCompile group: 'org.springframework', name: 'spring-test', version: '5.1.4.RELEASE'
     testCompile group: 'org.testng', name: 'testng', version: '7.0.0-beta1'
     compile group: 'com.opencsv', name: 'opencsv', version: '4.1'
+    testCompile "io.cucumber:cucumber-java:${cucumberVersion}"
+    testCompile "io.cucumber:cucumber-java8:${cucumberVersion}"
+    testCompile "io.cucumber:cucumber-testng:${cucumberVersion}"
+    testCompile "io.cucumber:cucumber-spring:${cucumberVersion}"
+}
 
+configurations {
+    cucumberRuntime {
+        extendsFrom testRuntime
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "cucumber.api.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'com.cdp.taf.stepdef', 'src/test/resources']
+        }
+    }
 }
 
 apply plugin: 'java'

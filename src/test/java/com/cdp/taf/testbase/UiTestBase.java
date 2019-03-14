@@ -1,6 +1,6 @@
-package com.cdp.taf;
+package com.cdp.taf.testbase;
 
-import com.cdp.taf.core.UIConfig;
+import com.cdp.taf.core.config.UIConfig;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;

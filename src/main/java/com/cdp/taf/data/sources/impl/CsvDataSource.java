@@ -1,7 +1,7 @@
-package com.cdp.taf.core.datasource.impl;
+package com.cdp.taf.data.sources.impl;
 
-import com.cdp.taf.core.datasource.DataPath;
-import com.cdp.taf.core.datasource.DataSource;
+import com.cdp.taf.data.sources.DataPath;
+import com.cdp.taf.data.sources.DataSource;
 import com.opencsv.CSVReader;
 import com.opencsv.bean.*;
 

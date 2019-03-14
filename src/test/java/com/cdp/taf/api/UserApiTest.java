@@ -1,8 +1,8 @@
-package com.cdp.taf;
+package com.cdp.taf.api;
 
-import com.cdp.taf.api.AllureLogListener;
 import com.cdp.taf.api.dto.UserDTO;
 import com.cdp.taf.api.services.UserServiceProxy;
+import com.cdp.taf.testbase.APITestBase;
 import io.restassured.mapper.TypeRef;
 import io.restassured.response.ValidatableResponse;
 import org.springframework.beans.factory.annotation.Autowired;

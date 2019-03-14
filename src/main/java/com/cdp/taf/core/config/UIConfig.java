@@ -1,11 +1,9 @@
-package com.cdp.taf.core;
+package com.cdp.taf.core.config;
 
-import com.cdp.taf.Properties;
-import com.cdp.taf.bo.LoginRegisterBO;
+import com.cdp.taf.core.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -36,12 +34,6 @@ public class UIConfig extends BaseConfig {
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Properties.forDriver.webdriverWait(), TimeUnit.SECONDS);
         return driver;
-    }
-
-    @Bean
-    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
-    public LoginRegisterBO loginRegisterBO() {
-        return new LoginRegisterBO();
     }
 
     @Bean

@@ -1,4 +1,4 @@
-package com.cdp.taf.core;
+package com.cdp.taf.core.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -22,16 +22,21 @@ public class ApiConfig extends BaseConfig {
     @Bean
     @Scope("thread")
     public RequestSpecification requestSpecification() {
-        RestAssuredConfig config = RestAssuredConfig.config().objectMapperConfig(
-                ObjectMapperConfig.objectMapperConfig().jackson2ObjectMapperFactory((cls, charset) -> objectMapper()));
-        RequestSpecification spec = new RequestSpecBuilder().setContentType(ContentType.JSON).setAccept(ContentType.JSON)
-                .setConfig(config).build();
-        return spec;
+        RestAssuredConfig config = RestAssuredConfig.config()
+                .objectMapperConfig(ObjectMapperConfig
+                        .objectMapperConfig()
+                        .jackson2ObjectMapperFactory((cls, charset) -> objectMapper()));
+        return new RequestSpecBuilder()
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setConfig(config)
+                .build();
     }
 
     @Bean
     public ObjectMapper objectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL)
+        ObjectMapper objectMapper = new ObjectMapper()
+                .setSerializationInclusion(JsonInclude.Include.NON_NULL)
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
         objectMapper.registerModule(new JaxbAnnotationModule());

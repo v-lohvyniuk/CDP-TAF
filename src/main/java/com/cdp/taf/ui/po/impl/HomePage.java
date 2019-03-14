@@ -1,7 +1,7 @@
-package com.cdp.taf.po;
+package com.cdp.taf.ui.po.impl;
 
-import com.cdp.taf.core.WebPage;
-import org.openqa.selenium.WebElement;
+import com.cdp.taf.ui.decorator.DecoratedElement;
+import com.cdp.taf.ui.po.WebPage;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 public class HomePage extends WebPage {
 
     @FindBy(xpath = "//*[contains(@id, 'profile_pic_header')]")
-    private WebElement profilePicLabel;
+    private DecoratedElement profilePicLabel;
 
-    public WebElement getProfilePicLabel() {
+    public DecoratedElement getProfilePicLabel() {
         return profilePicLabel;
     }
 }

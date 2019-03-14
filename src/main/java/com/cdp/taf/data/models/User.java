@@ -1,4 +1,4 @@
-package com.cdp.taf.models;
+package com.cdp.taf.data.models;
 
 import com.opencsv.bean.CsvBindByName;
 

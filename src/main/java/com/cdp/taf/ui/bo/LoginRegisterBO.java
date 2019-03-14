@@ -1,29 +1,32 @@
-package com.cdp.taf.bo;
+package com.cdp.taf.ui.bo;
 
-import com.cdp.taf.models.User;
-import com.cdp.taf.po.HomePage;
-import com.cdp.taf.po.LoginPage;
+import com.cdp.taf.data.models.User;
+import com.cdp.taf.ui.po.impl.HomePage;
+import com.cdp.taf.ui.po.impl.LoginPage;
 import com.github.javafaker.Faker;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import static java.lang.String.format;
 
 @Component
+@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class LoginRegisterBO {
 
     @Lazy
     @Autowired
     private LoginPage loginPage;
 
-    @Autowired
-    private static Faker faker;
-
     @Lazy
     @Autowired
     private HomePage homePage;
+
+    @Autowired
+    private static Faker faker;
 
     private static final Logger LOG = Logger.getLogger(LoginRegisterBO.class);
 
@@ -36,7 +39,7 @@ public class LoginRegisterBO {
     }
 
     public boolean isUserLoggedIn(){
-        return homePage.getProfilePicLabel().isDisplayed();
+        return homePage.getProfilePicLabel().isVisibleShortly();
     }
 
     public void register(User user) {
@@ -55,7 +58,7 @@ public class LoginRegisterBO {
     }
 
     public boolean isEmailConfirmationMessageDisplayed(){
-        return loginPage.isVisible(loginPage.getEmailConfirmationWidget(), 5);
+        return loginPage.getSecureAssuranceLabel().isVisibleShortly();
     }
 
     public static User getSampleUser() {

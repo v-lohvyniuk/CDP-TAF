@@ -1,8 +1,9 @@
-package com.cdp.taf.po;
+package com.cdp.taf.ui.po.impl;
 
-import com.cdp.taf.Properties;
-import com.cdp.taf.core.DecoratedElement;
-import com.cdp.taf.core.WebPage;
+import com.cdp.taf.core.Properties;
+import com.cdp.taf.ui.decorator.DecoratedElement;
+import com.cdp.taf.ui.decorator.impl.Label;
+import com.cdp.taf.ui.po.WebPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -57,6 +58,9 @@ public class LoginPage extends WebPage {
     @FindBy(xpath = "//div[contains(@class, 'contact_importer_widget')]")
     private DecoratedElement emailConfirmationWidget;
 
+    @FindBy(xpath = "//div[contains(text(), 'We wasdfdfnt to make')]")
+    private Label someLabel;
+
     public WebElement getEmailInput() {
         return emailInput;
     }
@@ -95,6 +99,11 @@ public class LoginPage extends WebPage {
 
     public Select getBirthdayYearSelect() {
         return new Select(birthdayYearSelect);
+    }
+
+
+    public Label getSecureAssuranceLabel() {
+        return someLabel;
     }
 
     public List<WebElement> getGenderRadioButtons() {

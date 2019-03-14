@@ -1,4 +1,6 @@
-package com.cdp.taf.core.datasource;
+package com.cdp.taf.data.sources;
+
+import com.cdp.taf.data.sources.DataPath;
 
 import java.util.List;
 import java.util.function.Predicate;

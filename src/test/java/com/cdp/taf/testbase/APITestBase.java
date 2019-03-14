@@ -1,6 +1,6 @@
-package com.cdp.taf;
+package com.cdp.taf.testbase;
 
-import com.cdp.taf.core.ApiConfig;
+import com.cdp.taf.core.config.ApiConfig;
 import io.restassured.mapper.TypeRef;
 import io.restassured.response.ValidatableResponse;
 import org.springframework.test.annotation.DirtiesContext;

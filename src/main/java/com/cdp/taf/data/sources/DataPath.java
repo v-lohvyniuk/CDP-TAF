@@ -1,4 +1,4 @@
-package com.cdp.taf.core.datasource;
+package com.cdp.taf.data.sources;
 
 public enum DataPath {
     USERS("/src/main/resources/data/users.csv");

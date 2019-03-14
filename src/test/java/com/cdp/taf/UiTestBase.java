@@ -9,8 +9,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterMethod;
-@ContextConfiguration(loader=AnnotationConfigContextLoader.class, classes = { SpringConfig.class })
-@DirtiesContext(classMode= DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+
+@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {SpringConfig.class})
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public abstract class UiTestBase extends AbstractTestNGSpringContextTests {
 
     @Lazy
@@ -18,7 +19,7 @@ public abstract class UiTestBase extends AbstractTestNGSpringContextTests {
     private WebDriver driver;
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown(){
+    public void tearDown() {
         driver.close();
         driver.quit();
     }

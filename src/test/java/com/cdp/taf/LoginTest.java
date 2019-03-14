@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 import static com.cdp.taf.bo.LoginRegisterBO.getSampleUser;
 import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends UiTestBase {
 
@@ -15,11 +14,11 @@ public class LoginTest extends UiTestBase {
     private LoginRegisterBO loginRegisterBO;
 
     @Test(description = "User can log in to application")
-    public void login_Positive_TestCase() {
+    public void loginWithoutPwd_Negative_TestCase() {
         // WHEN
         loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "");
         // THEN
-        assertTrue(loginRegisterBO.isUserLoggedIn());
+        assertFalse(loginRegisterBO.isUserLoggedIn());
     }
 
     @Test(description = "User is able to see registration email confirmation message")

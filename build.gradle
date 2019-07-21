@@ -46,7 +46,6 @@ dependencies {
     compile group: 'ru.yandex.qatools.allure', name: 'allure-java-annotations', version: '1.4.4'
     compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.12.1'
     compileOnly 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
 
 }
 

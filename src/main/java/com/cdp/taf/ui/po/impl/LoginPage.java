@@ -4,6 +4,7 @@ import com.cdp.taf.core.Properties;
 import com.cdp.taf.ui.decorator.DecoratedElement;
 import com.cdp.taf.ui.decorator.impl.Label;
 import com.cdp.taf.ui.po.WebPage;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Component
 @Scope("thread")
+@Slf4j
 public class LoginPage extends WebPage {
 
     @FindBy(id = "email")
@@ -111,6 +113,7 @@ public class LoginPage extends WebPage {
     }
 
     public WebElement getGenderRadioButtonByValue(String value) {
+        log.info("Get gender radio button by value: " + value);
         return genderRadioButtons.stream().filter(x -> x.getAttribute("value").equals(value)).findFirst()
                 .orElseThrow(() -> new RuntimeException("No such element with value " + value));
     }

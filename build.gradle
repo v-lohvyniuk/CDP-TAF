@@ -44,21 +44,23 @@ dependencies {
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.6.0'
     compile group: 'ru.yandex.qatools.allure', name: 'allure-java-annotations', version: '1.4.4'
+    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.12.1'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
 }
 
 apply plugin: 'java'
 
-test {
+
+task smoke(type: Test){
     include '**/*LoginTest.class'
-    systemProperties System.getProperties()
-        useTestNG() {
-            parallel 'methods'
-            threadCount 2
-            options {
-                listeners.add('com.epam.reportportal.testng.ReportPortalTestNGListener')
-            }
-        }
+    useTestNG() {
+        parallel 'methods'
+        threadCount 2
+    }
 }
+
 
 task apiTest(type: Test) {
     def count  = System.getProperty('threadCount', '6').toInteger()

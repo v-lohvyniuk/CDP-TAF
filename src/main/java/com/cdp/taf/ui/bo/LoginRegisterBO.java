@@ -4,6 +4,7 @@ import com.cdp.taf.data.models.User;
 import com.cdp.taf.ui.po.impl.HomePage;
 import com.cdp.taf.ui.po.impl.LoginPage;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -30,6 +31,7 @@ public class LoginRegisterBO {
 
     private static final Logger LOG = Logger.getLogger(LoginRegisterBO.class);
 
+    @Step
     public void login(String email, String password) {
         LOG.info(format("Performing login for user {%s} , {%s}",email, password));
         loginPage.navigate();
@@ -38,10 +40,12 @@ public class LoginRegisterBO {
         loginPage.getLoginButton().click();
     }
 
+    @Step
     public boolean isUserLoggedIn(){
         return homePage.getProfilePicLabel().isVisibleShortly();
     }
 
+    @Step
     public void register(User user) {
         LOG.info("Registering new user, test data : " + user);
         loginPage.navigate();
@@ -57,6 +61,7 @@ public class LoginRegisterBO {
         loginPage.getRegistrationButton().click();
     }
 
+    @Step
     public boolean isEmailConfirmationMessageDisplayed(){
         return loginPage.getSecureAssuranceLabel().isVisibleShortly();
     }

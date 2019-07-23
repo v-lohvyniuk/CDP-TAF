@@ -66,6 +66,11 @@ public class LoginRegisterBO {
         return loginPage.getSecureAssuranceLabel().isVisibleShortly();
     }
 
+    @Step
+    public boolean failingStep(){
+        throw new AssertionError();
+    }
+
     public static User getSampleUser() {
         Faker faker = new Faker();
 

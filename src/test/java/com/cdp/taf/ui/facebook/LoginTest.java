@@ -1,6 +1,6 @@
 package com.cdp.taf.ui.facebook;
 
-import com.cdp.taf.listeners.AllureTestListener;
+import com.cdp.taf.listeners.AllureScreenshotListener;
 import com.cdp.taf.testbase.UiTestBase;
 import com.cdp.taf.ui.bo.LoginRegisterBO;
 import com.cdp.taf.data.models.User;
@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import static com.cdp.taf.ui.bo.LoginRegisterBO.getSampleUser;
 import static org.testng.Assert.assertFalse;
 
-@Listeners({AllureTestListener.class})
+@Listeners({AllureScreenshotListener.class})
 public class LoginTest extends UiTestBase {
 
     @Autowired
@@ -34,5 +34,8 @@ public class LoginTest extends UiTestBase {
         // THEN
         //TODO: Add model generation to avoid security check
         assertFalse(loginRegisterBO.isEmailConfirmationMessageDisplayed());
+        //AND
+        loginRegisterBO.failingStep();
+
     }
 }

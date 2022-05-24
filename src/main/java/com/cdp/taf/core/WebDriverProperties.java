@@ -14,11 +14,19 @@ public class WebDriverProperties {
     @Value("${webdriver.short.wait}")
     private Integer shortWait;
 
+    @Value("${use.local.driver}")
+    private Boolean useLocalDriver;
+
+
     public Long webdriverWait() {
         return webdriverWait;
     }
 
     public Integer getShortWait() {
         return shortWait;
+    }
+
+    public Boolean getUseLocalDriver() {
+        return useLocalDriver;
     }
 }

@@ -20,7 +20,113 @@ public class LoginTest extends UiTestBase {
     @Test(description = "User can log in to application")
     public void loginWithoutPwd_Negative_TestCase() {
         // WHEN
-        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "");
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase2() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase3() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase4() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase5() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase6() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase7() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase8() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase9() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase10() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase11() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase12() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase13() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase14() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase15() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
+        // THEN
+        assertFalse(loginRegisterBO.isUserLoggedIn());
+    }
+    @Test(description = "User can log in to application")
+    public void loginWithoutPwd_Negative_TestCase16() {
+        // WHEN
+        loginRegisterBO.login("volodymyr.lohvyniuk@gmail.com", "Sdueghuidfhgih");
         // THEN
         assertFalse(loginRegisterBO.isUserLoggedIn());
     }

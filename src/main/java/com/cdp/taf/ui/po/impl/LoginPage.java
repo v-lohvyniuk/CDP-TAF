@@ -24,7 +24,7 @@ public class LoginPage extends WebPage {
     @FindBy(id = "pass")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//input[@type='submit']")
+    @FindBy(xpath = "//*[@type='submit']")
     private WebElement loginButton;
 
     @FindBy(xpath = "//input[@name='firstname']")

@@ -27,7 +27,6 @@ public class DecoratedElement {
             wait.until(dr -> element.isDisplayed() && element.isEnabled());
             return element.isDisplayed() && element.isEnabled();
         } catch (WebDriverException e) {
-            e.printStackTrace();
             return false;
         } finally {
             turnOnImpicitlyWait();

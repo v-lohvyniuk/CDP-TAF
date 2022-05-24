@@ -43,7 +43,6 @@ public class CustomFieldDecorator extends DefaultFieldDecorator {
             try {
                 clazz.getConstructor(WebElement.class, WebDriver.class); // if two-args constructor is used
             } catch (Exception e1) {
-                e1.printStackTrace();
                 return null;
             }
         }

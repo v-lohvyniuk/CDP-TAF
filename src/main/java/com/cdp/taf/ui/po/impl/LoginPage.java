@@ -132,7 +132,7 @@ public class LoginPage extends WebPage {
 
     @Override
     public LoginPage navigate() {
-        driver.navigate().to(Properties.forEnv.getBaseUrl());
+        driver.navigate().to(Properties.env.getBaseUrl());
         return this;
     }
 }

@@ -54,7 +54,7 @@ apply plugin: 'java'
 test {
     useTestNG() {
         parallel 'methods'
-        threadCount 10
+        threadCount 5
     }
 }
 

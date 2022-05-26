@@ -14,9 +14,14 @@ public class WebDriverProperties {
     @Value("${webdriver.short.wait}")
     private Integer shortWait;
 
+    @Value("${driver.type}")
+    private String driverType;
+
+    @Value("${hub.url}")
+    private String hubUrl;
+
     @Value("${use.local.driver}")
     private Boolean useLocalDriver;
-
 
     public Long webdriverWait() {
         return webdriverWait;
@@ -28,5 +33,17 @@ public class WebDriverProperties {
 
     public Boolean getUseLocalDriver() {
         return useLocalDriver;
+    }
+
+    public String getDriverType() {
+        return driverType;
+    }
+
+    public String getHubUrl() {
+        return hubUrl;
+    }
+
+    public Long getWebdriverWait() {
+        return webdriverWait;
     }
 }

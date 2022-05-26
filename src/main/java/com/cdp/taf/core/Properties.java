@@ -7,9 +7,9 @@ public class Properties {
 
     public static final ApplicationContext context;
 
-    public static final WebDriverProperties forDriver;
+    public static final WebDriverProperties driver;
 
-    public static final EnvProperties forEnv;
+    public static final EnvProperties env;
 
     static {
         context = new AnnotationConfigApplicationContext();
@@ -19,7 +19,7 @@ public class Properties {
         ((AnnotationConfigApplicationContext) context).refresh();
 
         //configuring beans
-        forDriver = context.getBean(WebDriverProperties.class);
-        forEnv = context.getBean(EnvProperties.class);
+        driver = context.getBean(WebDriverProperties.class);
+        env = context.getBean(EnvProperties.class);
     }
 }

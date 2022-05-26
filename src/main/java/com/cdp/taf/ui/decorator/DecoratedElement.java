@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DecoratedElement {
 
-    private static final int DEFAULT_TIMEOUT = Properties.forDriver.webdriverWait().intValue();
+    private static final int DEFAULT_TIMEOUT = Properties.driver.webdriverWait().intValue();
 
     protected WebElement element;
     private WebDriver driver;
@@ -34,7 +34,7 @@ public class DecoratedElement {
     }
 
     public boolean isVisibleShortly() {
-        return isVisibleIn(Properties.forDriver.getShortWait());
+        return isVisibleIn(Properties.driver.getShortWait());
     }
 
     protected boolean preValidateExists() {

@@ -1,7 +1,6 @@
 package com.cdp.taf.testbase;
 
 import com.cdp.taf.core.config.UIConfig;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -13,11 +12,12 @@ import org.testng.annotations.AfterMethod;
 
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {UIConfig.class})
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+
 public abstract class UiTestBase extends AbstractTestNGSpringContextTests {
 
     @Lazy
     @Autowired
-    private WebDriver driver;
+    protected WebDriver driver;
 
 
     @AfterMethod(alwaysRun = true)

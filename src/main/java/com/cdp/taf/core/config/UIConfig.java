@@ -22,7 +22,11 @@ import java.util.concurrent.TimeUnit;
 public class UIConfig extends BaseConfig {
 
     static {
-        WebDriverManager.getInstance(Properties.driver.getDriverType()).setup();
+        String driverType = Properties.driver.getDriverType();
+
+        if (!driverType.equals("android")) {
+            WebDriverManager.getInstance(Properties.driver.getDriverType()).setup();
+        }
     }
 
     @Bean

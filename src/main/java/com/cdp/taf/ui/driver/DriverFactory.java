@@ -44,6 +44,9 @@ public class DriverFactory {
         if (driverType.equals("firefox")) {
             return firefoxCapabilities();
         }
+        if (driverType.equals("android")) {
+            return androidCapabilities();
+        }
 
         throw new RuntimeException("No capabilities for type: " + driverType);
     }
@@ -59,6 +62,18 @@ public class DriverFactory {
         ));
 
         return capabilities;
+    }
+
+    private static DesiredCapabilities androidCapabilities() {
+        final DesiredCapabilities device = new DesiredCapabilities();
+        device.setCapability("deviceName", "android");
+        device.setCapability("version", "10.0");
+        device.setCapability("app", "https://d30.dwnserver.com/download/5142464f-56a1-4693-bdec-6de6ea9bdc62/2048-2-0-pdalife.ru.apk/"); //APK from https://www.apkmirror.com/apk/androbaby/2048/2048-2-1-release/2048-2-1-android-apk-download/download/
+        device.setCapability("appPackage", "com.androbaby.game2048");
+        device.setCapability("appActivity", "com.androbaby.game2048.MainActivity");
+        device.setCapability("enableVNC", true);
+        device.setCapability("enableVideo", true); // Uncomment this to record video
+        return device;
     }
 
     private static DesiredCapabilities firefoxCapabilities() {
